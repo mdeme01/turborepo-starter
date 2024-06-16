@@ -1,11 +1,11 @@
-import { ThemeProvider, ThemeToggle } from '@repo/ui'
+import { ThemeProvider } from '@repo/ui'
+
+import { Router } from './Router'
 
 export const App = () => {
     return (
         <ThemeProvider>
-            <div className="flex h-screen items-center justify-center">
-                <ThemeToggle />
-            </div>
+            <Router />
         </ThemeProvider>
     )
 }
