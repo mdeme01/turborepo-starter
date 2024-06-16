@@ -52,8 +52,6 @@ module.exports = {
                 '@typescript-eslint/no-explicit-any': 'warn',
                 '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
                 'tailwindcss/enforces-shorthand': 'off',
-                'tailwindcss/no-custom-classname': 'off',
-                'tailwindcss/classnames-order': 'off',
                 'react/self-closing-comp': ['warn', { component: true, html: true }],
                 'react/jsx-sort-props': [
                     'warn',
