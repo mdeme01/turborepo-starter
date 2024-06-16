@@ -48,7 +48,7 @@ module.exports = {
             rules: {
                 'simple-import-sort/imports': 'warn',
                 'simple-import-sort/exports': 'warn',
-                'no-unused-vars': 'warn',
+                'no-unused-vars': 'off',
                 '@typescript-eslint/no-explicit-any': 'warn',
                 '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
                 'tailwindcss/enforces-shorthand': 'off',
