@@ -1,0 +1,28 @@
+{
+    "name": "@repo/db",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "dev": "drizzle-kit studio",
+        "lint": "eslint . --max-warnings 0",
+        "migrate": "drizzle-kit generate && tsx migrate.ts"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/eslint": "^8.56.5",
+        "@types/node": "^20.11.24",
+        "drizzle-kit": "^0.22.7",
+        "eslint": "^8.57.0",
+        "tsx": "^4.15.5",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@repo/utils": "workspace:*",
+        "drizzle-orm": "^0.31.2",
+        "postgres": "^3.4.4"
+    }
+}
