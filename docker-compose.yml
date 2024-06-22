@@ -3,9 +3,9 @@ services:
         image: postgres:15
         container_name: turbo-pg
         environment:
+            POSTGRES_DATABASES: db
             POSTGRES_USER: user
             POSTGRES_PASSWORD: password
-            POSTGRES_DB: db
         ports:
             - "5432:5432"
         volumes:

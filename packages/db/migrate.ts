@@ -1,11 +1,19 @@
+import dotenv from 'dotenv'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import { migrate } from 'drizzle-orm/postgres-js/migrator'
 import postgres from 'postgres'
 
-const connection = postgres(process.env.POSTGRES_CONNECTION ?? '', { max: 1 })
+dotenv.config({
+    path: '../../.env',
+})
+
+const connectionString =
+    process.env.POSTGRES_CONNECTION ?? 'postgresql://user:password@localhost:5432/db'
+
+const connection = postgres(connectionString, { max: 1 })
 
 const handleMigrate = async () => {
-    await migrate(drizzle(connection), { migrationsFolder: './drizzle' })
+    await migrate(drizzle(connection), { migrationsFolder: './migrations' })
 }
 
 handleMigrate()
