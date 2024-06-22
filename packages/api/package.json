@@ -1,0 +1,28 @@
+{
+    "name": "@repo/api",
+    "version": "0.0.0",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0"
+    },
+    "dependencies": {
+        "@repo/db": "workspace:*",
+        "@repo/utils": "workspace:*",
+        "@trpc/client": "11.0.0-rc.417",
+        "@trpc/server": "11.0.0-rc.417",
+        "argon2": "^0.40.3",
+        "drizzle-orm": "^0.31.2",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/eslint": "^8.56.5",
+        "@types/node": "^20.11.24",
+        "eslint": "^8.57.0",
+        "typescript": "^5.5.2"
+    }
+}
