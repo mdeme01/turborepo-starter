@@ -1,6 +1,6 @@
 import { db, users } from '@repo/db'
 import { hash } from 'argon2'
-import { eq, like } from 'drizzle-orm'
+import { eq, ilike } from 'drizzle-orm'
 
 import {
     CreateUserInput,
@@ -10,15 +10,20 @@ import {
     UpdateUserInput,
 } from './user.schema'
 
-export const createUserHandler = async (input: CreateUserInput) => {
-    return await db.insert(users).values([input])
+export const createUserHandler = async ({ password, ...input }: CreateUserInput) => {
+    return await db.insert(users).values([
+        {
+            ...input,
+            password: await hash(password),
+        },
+    ])
 }
 
 export const getAllUsersHandler = async ({ name }: GetAllUsersInput) => {
     return await db
         .select()
         .from(users)
-        .where(like(users.name, `%${name}%`))
+        .where(ilike(users.name, `%${name}%`))
 }
 
 export const getUserByIdHandler = async ({ id }: GetUserByIdInput) => {
