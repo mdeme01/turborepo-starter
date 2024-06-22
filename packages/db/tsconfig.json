@@ -3,6 +3,6 @@
     "compilerOptions": {
         "outDir": "dist"
     },
-    "include": ["src", "drizzle.config.ts", "migrate.ts"],
+    "include": ["src", "seeds", "drizzle.config.ts", "migrate.ts", "seeds"],
     "exclude": ["node_modules", "dist"]
 }

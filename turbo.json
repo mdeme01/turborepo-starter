@@ -21,6 +21,7 @@
             "cache": false,
             "persistent": true
         },
-        "migrate": {}
+        "migrate": {},
+        "seed": {}
     }
 }
