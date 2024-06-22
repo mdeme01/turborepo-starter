@@ -6,10 +6,15 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `web`: React app
-- `@repo/ui`: React component library
+- `@repo/web`: React app
+- `@repo/server`: Fastify server using the tRPC API
+- `@repo/ui`: React component library, using [shadcn/ui](https://ui.shadcn.com/)
+- `@repo/api`: tRPC API using Drizzle
+- `@repo/db`: Drizzle ORM interacting with a Postgres db
+- `@repo/utils`: A collection of utils used throughout the repo
 - `@repo/eslint-config`: `eslint` configurations
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `@repo/typescript-config`: `typescript` configurations
+- `@repo/tailwind-config`: `tailwind` configurations
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -20,23 +25,42 @@ This Turborepo has some additional tools already setup for you:
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
+- [Tailwind](https://tailwindcss.com/) for quick UI building
+
+### Develop
+
+First, install packages:
+
+```
+pnpm i
+```
+
+Create a `.env` file and fill in the variables:
+
+```
+cp .env.example .env
+```
+
+Create the Postgres db with Docker, then initialize it:
+
+```
+docker compose up
+pnpm migrate
+pnpm seed
+```
+
+To develop all apps and packages, run the following command:
+
+```
+pnpm dev
+```
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
 pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
 ```
 
 ### Remote Caching
