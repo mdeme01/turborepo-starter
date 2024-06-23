@@ -23,6 +23,7 @@ export const app = async (fastify: FastifyInstance) => {
         return reply.type('text/html').send(
             renderTrpcPanel(appRouter, {
                 url: `http://${host}:${port}/trpc`,
+                transformer: 'superjson',
             }),
         )
     })
