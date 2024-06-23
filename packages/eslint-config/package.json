@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "files": [
-        "library.js",
-        "react.js"
+        "eslint.lib.js",
+        "eslint.react.js"
     ],
     "devDependencies": {
         "@types/node": "^20.11.24",
