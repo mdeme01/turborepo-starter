@@ -1,19 +1,15 @@
-import dotenv from 'dotenv'
+import { envConfig } from '@repo/env-config'
 import { defineConfig } from 'drizzle-kit'
-
-dotenv.config({
-    path: '../../.env',
-})
 
 export default defineConfig({
     schema: './src/schema.ts',
     out: './migrations',
     dialect: 'postgresql',
     dbCredentials: {
-        host: process.env.POSTGRES_HOST ?? 'localhost',
-        port: Number(process.env.POSTGRES_PORT ?? 5432),
-        user: process.env.POSTGRES_USER ?? 'user',
-        password: process.env.POSTGRES_PASSWORD ?? 'password',
-        database: process.env.POSTGRES_DB ?? 'db',
+        host: envConfig.postgres.host,
+        port: envConfig.postgres.port,
+        user: envConfig.postgres.user,
+        password: envConfig.postgres.password,
+        database: envConfig.postgres.db,
     },
 })

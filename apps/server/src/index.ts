@@ -1,14 +1,10 @@
-import dotenv from 'dotenv'
+import { envConfig } from '@repo/env-config'
 import Fastify from 'fastify'
 
 import { app } from './app'
 
-dotenv.config({
-    path: '../../../.env',
-})
-
-const host = process.env.SERVER_HOST ?? 'localhost'
-const port = Number(process.env.SERVER_PORT ?? 3000)
+const host = envConfig.server.host
+const port = envConfig.server.port
 
 const server = Fastify({
     logger: true,

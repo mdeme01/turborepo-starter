@@ -1,15 +1,11 @@
 import { appRouter } from '@repo/api'
+import { envConfig } from '@repo/env-config'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
-import dotenv from 'dotenv'
 import { FastifyInstance } from 'fastify'
 import { renderTrpcPanel } from 'trpc-panel'
 
-dotenv.config({
-    path: '../../../.env',
-})
-
-const host = process.env.SERVER_HOST ?? 'localhost'
-const port = Number(process.env.SERVER_PORT ?? 3000)
+const host = envConfig.server.host
+const port = envConfig.server.port
 
 export const app = async (fastify: FastifyInstance) => {
     fastify.register(fastifyTRPCPlugin, {

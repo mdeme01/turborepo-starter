@@ -39,6 +39,9 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1
     devDependencies:
+      '@repo/env-config':
+        specifier: workspace:*
+        version: link:../../packages/env-config
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -51,9 +54,6 @@ importers:
       '@types/node':
         specifier: ^20.11.24
         version: 20.14.5
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -176,9 +176,6 @@ importers:
       '@types/node':
         specifier: ^20.11.24
         version: 20.14.5
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -201,6 +198,36 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
+      '@repo/env-config':
+        specifier: workspace:*
+        version: link:../env-config
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/eslint':
+        specifier: ^8.56.5
+        version: 8.56.10
+      '@types/node':
+        specifier: ^20.11.24
+        version: 20.14.5
+      drizzle-kit:
+        specifier: ^0.22.7
+        version: 0.22.7
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      tsx:
+        specifier: ^4.15.5
+        version: 4.15.6
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
+  packages/env-config:
+    devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
@@ -216,18 +243,12 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
-      drizzle-kit:
-        specifier: ^0.22.7
-        version: 0.22.7
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      tsx:
-        specifier: ^4.15.5
-        version: 4.15.6
       typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
+        specifier: ^5.5.2
+        version: 5.5.2
 
   packages/eslint-config:
     devDependencies:
