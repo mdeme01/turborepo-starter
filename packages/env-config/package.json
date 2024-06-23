@@ -5,6 +5,10 @@
     "exports": {
         ".": "./src/index.ts"
     },
+    "scripts": {
+        "lint": "eslint . --max-warnings 0",
+        "type-check": "tsc --noEmit -p ./tsconfig.json"
+    },
     "devDependencies": {
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",

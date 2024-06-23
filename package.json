@@ -5,6 +5,7 @@
         "build": "turbo build",
         "dev": "turbo dev",
         "lint": "turbo lint",
+        "type-check": "turbo type-check",
         "migrate": "turbo migrate",
         "seed": "turbo seed",
         "format": "prettier --write \"**/*.{ts,tsx,md}\""

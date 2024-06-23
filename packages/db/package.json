@@ -8,6 +8,7 @@
     "scripts": {
         "dev": "drizzle-kit studio",
         "lint": "eslint . --max-warnings 0",
+        "type-check": "tsc --noEmit -p ./tsconfig.json",
         "migrate": "drizzle-kit generate && tsx migrate.ts",
         "seed": "tsx seeds/index.ts"
     },
