@@ -23,7 +23,7 @@ export const getAllUsersHandler = async ({ name }: GetAllUsersInput) => {
     return await db
         .select()
         .from(users)
-        .where(ilike(users.name, `%${name}%`))
+        .where(ilike(users.name, `%${name ?? ''}%`))
 }
 
 export const getUserByIdHandler = async ({ id }: GetUserByIdInput) => {
