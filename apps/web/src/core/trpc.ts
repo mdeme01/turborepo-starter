@@ -1,10 +1,33 @@
 import type { AppRouter } from '@repo/api'
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client'
+import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
+import { createTRPCReact, httpLink } from '@trpc/react-query'
+import superjson from 'superjson'
 
-export const trpc = createTRPCProxyClient<AppRouter>({
+const errorHandler = (error: unknown) => {
+    console.error(error)
+}
+
+export const api = createTRPCReact<AppRouter>()
+
+export const trpcClient = api.createClient({
+    transformer: superjson,
     links: [
-        httpBatchLink({
-            url: `http://localhost:4000/api`,
+        httpLink({
+            url: 'api/trpc',
         }),
     ],
+})
+
+export const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchInterval: 60000,
+        },
+    },
+    queryCache: new QueryCache({
+        onError: errorHandler,
+    }),
+    mutationCache: new MutationCache({
+        onError: errorHandler,
+    }),
 })
