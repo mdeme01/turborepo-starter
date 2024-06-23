@@ -6,5 +6,11 @@ export default defineConfig({
     plugins: [react(), TanStackRouterVite()],
     server: {
         port: 4000,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000/trpc',
+                changeOrigin: true,
+            },
+        },
     },
 })
