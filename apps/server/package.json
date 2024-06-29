@@ -5,7 +5,8 @@
     "scripts": {
         "dev": "tsx watch --tsconfig ./tsconfig.json src/index.ts",
         "lint": "eslint . --max-warnings 0",
-        "type-check": "tsc --noEmit -p ./tsconfig.json"
+        "type-check": "tsc --noEmit -p ./tsconfig.json",
+        "build": "esbuild --bundle --platform=node --outdir=dist src/index.ts"
     },
     "dependencies": {
         "@repo/api": "workspace:*",
@@ -21,6 +22,7 @@
         "@repo/typescript": "workspace:*",
         "@types/eslint": "^8.56.10",
         "@types/node": "^20.14.9",
+        "esbuild": "^0.21.5",
         "eslint": "^8.57.0",
         "tsx": "^4.16.0",
         "typescript": "^5.5.2"
