@@ -10,10 +10,10 @@ const errorHandler = (error: unknown) => {
 export const api = createTRPCReact<AppRouter>()
 
 export const trpcClient = api.createClient({
-    transformer: superjson,
     links: [
         httpLink({
             url: 'api/trpc',
+            transformer: superjson,
         }),
     ],
 })
