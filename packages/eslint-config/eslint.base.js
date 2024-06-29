@@ -6,13 +6,7 @@ const project = resolve(process.cwd(), 'tsconfig.json')
 module.exports = {
     extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier', 'turbo'],
     plugins: ['only-warn', 'simple-import-sort'],
-    globals: {
-        React: true,
-        JSX: true,
-    },
-    env: {
-        node: true,
-    },
+    parser: '@typescript-eslint/parser',
     settings: {
         'import/resolver': {
             typescript: {
@@ -20,21 +14,19 @@ module.exports = {
             },
         },
     },
-    ignorePatterns: [
-        // Ignore dotfiles
-        '.*.js',
-        'node_modules/',
-        'dist/',
-    ],
+    env: {
+        node: true,
+    },
+    ignorePatterns: ['.*.js', 'node_modules/', 'dist/'],
     overrides: [
         {
-            files: ['*.js?(x)', '*.ts?(x)'],
+            files: ['*.ts?(x)'],
             rules: {
+                '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+                '@typescript-eslint/no-explicit-any': 'warn',
                 'simple-import-sort/imports': 'warn',
                 'simple-import-sort/exports': 'warn',
                 'no-unused-vars': 'warn',
-                '@typescript-eslint/no-explicit-any': 'warn',
-                '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
             },
         },
     ],

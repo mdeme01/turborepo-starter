@@ -5,21 +5,11 @@ const project = resolve(process.cwd(), 'tsconfig.json')
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
     extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
+        './eslint.base.js',
         'plugin:react-hooks/recommended',
         'plugin:tailwindcss/recommended',
-        'prettier',
-        'turbo',
     ],
-    plugins: [
-        'only-warn',
-        'react-refresh',
-        'react',
-        'react-hooks',
-        'tailwindcss',
-        'simple-import-sort',
-    ],
+    plugins: ['react', 'react-refresh', 'react-hooks', 'tailwindcss'],
     globals: {
         React: true,
         JSX: true,
@@ -36,22 +26,11 @@ module.exports = {
             },
         },
     },
-    ignorePatterns: [
-        // Ignore dotfiles
-        '.*.js',
-        'node_modules/',
-        'dist/',
-    ],
+    ignorePatterns: ['.*.js', 'node_modules/', 'dist/'],
     overrides: [
         {
-            files: ['*.js?(x)', '*.ts?(x)'],
+            files: ['*.ts?(x)'],
             rules: {
-                'simple-import-sort/imports': 'warn',
-                'simple-import-sort/exports': 'warn',
-                'no-unused-vars': 'off',
-                '@typescript-eslint/no-explicit-any': 'warn',
-                '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-                'tailwindcss/enforces-shorthand': 'off',
                 'react/self-closing-comp': ['warn', { component: true, html: true }],
                 'react/jsx-sort-props': [
                     'warn',
