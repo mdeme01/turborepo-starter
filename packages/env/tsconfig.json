@@ -1,5 +1,5 @@
 {
-    "extends": "@repo/typescript-config/tsconfig.lib.json",
+    "extends": "@repo/typescript/tsconfig.lib.json",
     "compilerOptions": {
         "outDir": "dist"
     },

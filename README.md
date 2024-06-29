@@ -13,7 +13,7 @@ This Turborepo includes the following packages/apps:
 - `@repo/db`: Drizzle ORM interacting with a Postgres db
 - `@repo/utils`: A collection of utils used throughout the repo
 - `@repo/eslint-config`: `eslint` configurations
-- `@repo/typescript-config`: `typescript` configurations
+- `@repo/typescript`: `typescript` configurations
 - `@repo/tailwind-config`: `tailwind` configurations
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).

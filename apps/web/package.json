@@ -30,7 +30,7 @@
         "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/tailwind-config": "workspace:*",
-        "@repo/typescript-config": "workspace:*",
+        "@repo/typescript": "workspace:*",
         "@tanstack/router-devtools": "^1.43.2",
         "@tanstack/router-vite-plugin": "^1.43.1",
         "@types/react": "^18.3.3",

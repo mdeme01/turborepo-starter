@@ -15,7 +15,7 @@
     "devDependencies": {
         "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
-        "@repo/typescript-config": "workspace:*",
+        "@repo/typescript": "workspace:*",
         "@types/eslint": "^8.56.10",
         "@types/node": "^20.14.9",
         "drizzle-kit": "^0.22.7",

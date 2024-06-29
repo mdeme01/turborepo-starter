@@ -18,7 +18,7 @@
         "@metamorph/trpc-panel": "^1.0.5",
         "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
-        "@repo/typescript-config": "workspace:*",
+        "@repo/typescript": "workspace:*",
         "@types/eslint": "^8.56.10",
         "@types/node": "^20.14.9",
         "eslint": "^8.57.0",
