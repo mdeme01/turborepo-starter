@@ -42,9 +42,9 @@ importers:
       '@metamorph/trpc-panel':
         specifier: ^1.0.5
         version: 1.0.5(@trpc/server@11.0.0-rc.433)(zod@3.23.8)
-      '@repo/env-config':
+      '@repo/env':
         specifier: workspace:*
-        version: link:../../packages/env-config
+        version: link:../../packages/env
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -115,9 +115,9 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.2)))
     devDependencies:
-      '@repo/env-config':
+      '@repo/env':
         specifier: workspace:*
-        version: link:../../packages/env-config
+        version: link:../../packages/env
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
@@ -219,9 +219,9 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
-      '@repo/env-config':
+      '@repo/env':
         specifier: workspace:*
-        version: link:../env-config
+        version: link:../env
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
@@ -247,7 +247,7 @@ importers:
         specifier: ^5.5.2
         version: 5.5.2
 
-  packages/env-config:
+  packages/env:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*

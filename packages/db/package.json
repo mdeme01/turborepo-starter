@@ -13,7 +13,7 @@
         "seed": "tsx seeds/index.ts"
     },
     "devDependencies": {
-        "@repo/env-config": "workspace:*",
+        "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@types/eslint": "^8.56.10",

@@ -27,7 +27,7 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
-        "@repo/env-config": "workspace:*",
+        "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/tailwind-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",

@@ -1,5 +1,5 @@
 {
-    "name": "@repo/env-config",
+    "name": "@repo/env",
     "version": "0.0.0",
     "private": true,
     "exports": {

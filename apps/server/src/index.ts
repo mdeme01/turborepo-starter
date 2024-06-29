@@ -1,4 +1,4 @@
-import { envConfig } from '@repo/env-config'
+import { envConfig } from '@repo/env'
 import Fastify from 'fastify'
 
 import { app } from './app'

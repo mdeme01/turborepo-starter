@@ -16,7 +16,7 @@
     },
     "devDependencies": {
         "@metamorph/trpc-panel": "^1.0.5",
-        "@repo/env-config": "workspace:*",
+        "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@types/eslint": "^8.56.10",
