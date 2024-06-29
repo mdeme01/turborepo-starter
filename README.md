@@ -12,7 +12,8 @@ This Turborepo includes the following packages/apps:
 - `@repo/api`: tRPC API using Drizzle
 - `@repo/db`: Drizzle ORM interacting with a Postgres db
 - `@repo/utils`: A collection of utils used throughout the repo
-- `@repo/eslint-config`: `eslint` configurations
+- `@repo/env`: env variables config
+- `@repo/eslint`: `eslint` configurations
 - `@repo/typescript`: `typescript` configurations
 - `@repo/tailwind`: `tailwind` configurations
 
