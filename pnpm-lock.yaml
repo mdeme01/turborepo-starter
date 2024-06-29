@@ -47,7 +47,7 @@ importers:
         version: link:../../packages/env
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/eslint-config
+        version: link:../../packages/eslint
       '@repo/typescript':
         specifier: workspace:*
         version: link:../../packages/typescript
@@ -120,7 +120,7 @@ importers:
         version: link:../../packages/env
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../../packages/eslint-config
+        version: link:../../packages/eslint
       '@repo/tailwind':
         specifier: workspace:*
         version: link:../../packages/tailwind
@@ -187,7 +187,7 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../eslint
       '@repo/typescript':
         specifier: workspace:*
         version: link:../typescript
@@ -224,7 +224,7 @@ importers:
         version: link:../env
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../eslint
       '@repo/typescript':
         specifier: workspace:*
         version: link:../typescript
@@ -251,7 +251,7 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../eslint
       '@repo/typescript':
         specifier: workspace:*
         version: link:../typescript
@@ -271,7 +271,7 @@ importers:
         specifier: ^5.5.2
         version: 5.5.2
 
-  packages/eslint-config:
+  packages/eslint:
     devDependencies:
       '@types/node':
         specifier: ^20.14.9
@@ -374,7 +374,7 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../eslint
       '@repo/tailwind':
         specifier: workspace:*
         version: link:../tailwind
@@ -429,7 +429,7 @@ importers:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../eslint
       '@repo/typescript':
         specifier: workspace:*
         version: link:../typescript

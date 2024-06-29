@@ -2,10 +2,6 @@
     "name": "@repo/eslint-config",
     "version": "0.0.0",
     "private": true,
-    "files": [
-        "eslint.lib.js",
-        "eslint.react.js"
-    ],
     "devDependencies": {
         "@types/node": "^20.14.9",
         "@typescript-eslint/eslint-plugin": "^7.14.1",
