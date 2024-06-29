@@ -1,8 +1,8 @@
+import { renderTrpcPanel } from '@metamorph/trpc-panel'
 import { appRouter } from '@repo/api'
 import { envConfig } from '@repo/env-config'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
 import { FastifyInstance } from 'fastify'
-import { renderTrpcPanel } from '@metamorph/trpc-panel'
 
 const host = envConfig.server.host
 const port = envConfig.server.port
