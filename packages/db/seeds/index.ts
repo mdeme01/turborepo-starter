@@ -4,7 +4,7 @@ import postgres from 'postgres'
 
 import { seedUsers } from './users'
 
-const connection = postgres(envConfig.postgres.connection, { max: 1 })
+const connection = postgres(envConfig.postgres.url, { max: 1 })
 
 const db = drizzle(connection)
 
