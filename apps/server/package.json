@@ -9,6 +9,7 @@
         "build": "esbuild --bundle --platform=node --outdir=dist src/index.ts"
     },
     "dependencies": {
+        "@fastify/cors": "^9.0.1",
         "@repo/api": "workspace:*",
         "@repo/utils": "workspace:*",
         "@trpc/server": "11.0.0-rc.433",

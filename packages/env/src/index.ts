@@ -18,9 +18,4 @@ export const envConfig = {
         host: process.env.SERVER_HOST ?? 'localhost',
         port: Number(process.env.SERVER_PORT ?? 3000),
     },
-    web: {
-        url: process.env.WEB_URL ?? 'http://localhost:3001',
-        host: process.env.WEB_HOST ?? 'localhost',
-        port: Number(process.env.WEB_PORT ?? 3001),
-    },
 }

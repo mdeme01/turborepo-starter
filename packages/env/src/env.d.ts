@@ -9,8 +9,5 @@ declare namespace NodeJS {
         SERVER_URL: string
         SERVER_HOST: string
         SERVER_PORT: number
-        WEB_URL: string
-        WEB_HOST: string
-        WEB_PORT: number
     }
 }

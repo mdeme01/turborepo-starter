@@ -10,9 +10,9 @@
         "SERVER_URL",
         "SERVER_HOST",
         "SERVER_PORT",
-        "WEB_URL",
-        "WEB_HOST",
-        "WEB_PORT"
+        "VITE_SERVER_URL",
+        "VITE_WEB_HOST",
+        "VITE_WEB_PORT"
     ],
     "tasks": {
         "build": {

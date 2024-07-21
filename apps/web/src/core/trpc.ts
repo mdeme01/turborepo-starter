@@ -12,7 +12,7 @@ export const api = createTRPCReact<AppRouter>()
 export const trpcClient = api.createClient({
     links: [
         httpLink({
-            url: 'api/trpc',
+            url: `${import.meta.env.VITE_SERVER_URL}/trpc`,
             transformer: superjson,
         }),
     ],

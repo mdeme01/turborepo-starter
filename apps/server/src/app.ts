@@ -1,3 +1,4 @@
+import cors from '@fastify/cors'
 import { renderTrpcPanel } from '@metamorph/trpc-panel'
 import { appRouter } from '@repo/api'
 import { envConfig } from '@repo/env'
@@ -8,7 +9,12 @@ const host = envConfig.server.host
 const port = envConfig.server.port
 
 export const app = async (fastify: FastifyInstance) => {
-    fastify.register(fastifyTRPCPlugin, {
+    await fastify.register(cors, {
+        origin: '*',
+        methods: '*',
+    })
+
+    await fastify.register(fastifyTRPCPlugin, {
         prefix: '/trpc',
         trpcOptions: {
             router: appRouter,
