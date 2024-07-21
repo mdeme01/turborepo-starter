@@ -8,6 +8,7 @@ module.exports = {
     rules: {
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
+    ignorePatterns: ['.eslintrc.cjs'],
     parserOptions: {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname,
