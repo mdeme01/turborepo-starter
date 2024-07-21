@@ -2,11 +2,6 @@
     "$schema": "https://turbo.build/schema.json",
     "globalEnv": [
         "POSTGRES_URL",
-        "POSTGRES_HOST",
-        "POSTGRES_PORT",
-        "POSTGRES_DB",
-        "POSTGRES_USER",
-        "POSTGRES_PASSWORD",
         "SERVER_URL",
         "SERVER_HOST",
         "SERVER_PORT",
