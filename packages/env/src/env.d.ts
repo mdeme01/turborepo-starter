@@ -4,5 +4,6 @@ declare namespace NodeJS {
         SERVER_URL: string
         SERVER_HOST: string
         SERVER_PORT: number
+        JWT_SECRET: string
     }
 }

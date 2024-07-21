@@ -5,6 +5,7 @@
         "SERVER_URL",
         "SERVER_HOST",
         "SERVER_PORT",
+        "JWT_SECRET",
         "VITE_SERVER_URL",
         "VITE_WEB_HOST",
         "VITE_WEB_PORT"

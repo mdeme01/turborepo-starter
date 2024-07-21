@@ -1,6 +1,6 @@
 import cors from '@fastify/cors'
 import { renderTrpcPanel } from '@metamorph/trpc-panel'
-import { appRouter } from '@repo/api'
+import { appRouter, createContext } from '@repo/api'
 import { envConfig } from '@repo/env'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
 import { FastifyInstance } from 'fastify'
@@ -18,6 +18,7 @@ export const app = async (fastify: FastifyInstance) => {
         prefix: '/trpc',
         trpcOptions: {
             router: appRouter,
+            createContext,
         },
     })
 

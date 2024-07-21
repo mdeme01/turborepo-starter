@@ -13,4 +13,5 @@ export const envConfig = {
         host: process.env.SERVER_HOST ?? 'localhost',
         port: Number(process.env.SERVER_PORT ?? 3000),
     },
+    jwtSecret: process.env.JWT_SECRET ?? 'secret',
 }
