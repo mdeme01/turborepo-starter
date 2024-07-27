@@ -12,4 +12,4 @@ export const router = t.router
 export const middleware = t.middleware
 
 export const publicProcedure = t.procedure
-export const authenticationProdedure = publicProcedure.use(authenticationMiddleware())
+export const authenticationProcedure = publicProcedure.use(authenticationMiddleware())
