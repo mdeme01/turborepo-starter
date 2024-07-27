@@ -4,6 +4,7 @@ import {
     deleteUserSchema,
     getAllUsersSchema,
     getUserByIdSchema,
+    loginUserSchema,
     updateUserSchema,
 } from './user.schema'
 import {
@@ -11,10 +12,16 @@ import {
     deleteUserHandler,
     getAllUsersHandler,
     getUserByIdHandler,
+    loginUserHandler,
+    registerUserHandler,
     updateUserHandler,
 } from './user.service'
 
 export const userRouter = router({
+    register: publicProcedure
+        .input(createUserSchema)
+        .mutation(({ input }) => registerUserHandler(input)),
+    login: publicProcedure.input(loginUserSchema).mutation(({ input }) => loginUserHandler(input)),
     create: publicProcedure
         .input(createUserSchema)
         .mutation(({ input }) => createUserHandler(input)),
