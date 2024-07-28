@@ -5,7 +5,7 @@ import { z } from 'zod'
 const createKey = () => Buffer.from(envConfig.jwtSecret, 'base64').toString('ascii')
 
 export const customJwtPayloadSchema = z.object({
-    id: z.string(),
+    id: z.string().nullish(),
 })
 
 export type CustomJwtPayload = z.infer<typeof customJwtPayloadSchema>
@@ -24,9 +24,14 @@ export const verifyJwt = (token: string): CustomJwtPayload | null => {
         const publicKey = createKey()
 
         const res = verify(token, publicKey)
+
+        if (!res) {
+            return null
+        }
+
         const payload = customJwtPayloadSchema.safeParse(res)
 
-        if (!payload.success) {
+        if (!payload.success || !payload.data.id) {
             return null
         }
 

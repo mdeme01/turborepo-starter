@@ -1,12 +1,15 @@
 {
     "$schema": "https://turbo.build/schema.json",
     "globalEnv": [
+        "NODE_ENV",
         "POSTGRES_URL",
         "SERVER_URL",
         "SERVER_HOST",
         "SERVER_PORT",
+        "COOKIE_SECRET",
         "JWT_SECRET",
         "VITE_SERVER_URL",
+        "VITE_WEB_URL",
         "VITE_WEB_HOST",
         "VITE_WEB_PORT"
     ],

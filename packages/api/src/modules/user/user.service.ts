@@ -1,5 +1,4 @@
 import { db, users } from '@repo/db'
-import { signJwt } from '@repo/utils'
 import { TRPCError } from '@trpc/server'
 import { hash, verify } from 'argon2'
 import { eq, ilike } from 'drizzle-orm'
@@ -34,7 +33,7 @@ export const registerUserHandler = async ({ password, ...input }: CreateUserInpu
         .returning({ id: users.id })
 
     return {
-        jwt: signJwt({ id: res[0].id }),
+        userId: res[0].id,
     }
 }
 
@@ -61,7 +60,7 @@ export const loginUserHandler = async (input: LoginUserInput) => {
     }
 
     return {
-        jwt: signJwt({ id: user.id }),
+        userId: user.id,
     }
 }
 

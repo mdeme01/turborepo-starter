@@ -5,6 +5,7 @@ dotenv.config({
 })
 
 export const envConfig = {
+    isDev: process.env.NODE_ENV === 'development',
     postgres: {
         url: process.env.POSTGRES_URL ?? 'postgresql://user:password@localhost:5432/db',
     },
@@ -13,5 +14,11 @@ export const envConfig = {
         host: process.env.SERVER_HOST ?? 'localhost',
         port: Number(process.env.SERVER_PORT ?? 3000),
     },
-    jwtSecret: process.env.JWT_SECRET ?? 'secret',
+    web: {
+        url: process.env.VITE_WEB_URL ?? 'http://localhost:3001',
+        host: process.env.VITE_WEB_HOST ?? 'localhost',
+        port: Number(process.env.VITE_WEB_PORT ?? 3001),
+    },
+    cookieSecret: process.env.COOKIE_SECRET ?? 'cookie-secret',
+    jwtSecret: process.env.JWT_SECRET ?? 'jwt-secret',
 }

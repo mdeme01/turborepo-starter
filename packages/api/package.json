@@ -10,6 +10,7 @@
         "type-check": "tsc --noEmit -p ./tsconfig.json"
     },
     "dependencies": {
+        "@repo/env": "workspace:*",
         "@repo/db": "workspace:*",
         "@repo/utils": "workspace:*",
         "@trpc/server": "11.0.0-rc.433",

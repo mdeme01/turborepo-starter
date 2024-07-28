@@ -1,36 +1,27 @@
 import { Button, ThemeToggle } from '@repo/ui'
 import { createFileRoute } from '@tanstack/react-router'
 
-import { api } from '../core/trpc'
-import { useAuth } from '../providers/AuthProvider'
+import { useAuth } from '../hooks/useAuth'
 
 const Home = () => {
-    const auth = useAuth()
-    const { mutateAsync: login } = api.user.login.useMutation()
+    const { user, login, logout } = useAuth()
 
     const handleLogin = async () => {
-        if (auth.user) {
-            return
-        }
-        const { jwt } = await login({ email: 'john.doe@gmail.com', password: 'Hello1234!' })
-        auth.login(jwt)
+        await login({ email: 'john.doe@gmail.com', password: 'Hello1234!' })
     }
 
-    const handleLogout = () => {
-        if (!auth.user) {
-            return
-        }
-        auth.logout()
+    const handleLogout = async () => {
+        await logout()
     }
 
     return (
         <div className="flex h-full flex-col items-center justify-center space-y-5">
             <h1 className="text-xl font-bold">
-                Welcome to Turborepo starter {auth.user ? auth.user.name : 'Anonymus'}!
+                Welcome to Turborepo starter {user?.name ?? 'Anonymus'}!
             </h1>
             <ThemeToggle />
-            <Button onClick={handleLogin}>Login</Button>
-            <Button onClick={handleLogout}>Logout</Button>
+            {!user && <Button onClick={handleLogin}>Login</Button>}
+            {user && <Button onClick={handleLogout}>Logout</Button>}
         </div>
     )
 }

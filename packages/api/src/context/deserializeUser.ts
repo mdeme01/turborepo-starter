@@ -6,16 +6,18 @@ export const deserializeUser = async ({
 }: CreateFastifyContextOptions): Promise<{
     id: string
 } | null> => {
-    const authHeader = req.headers.authorization
+    const token = req.headers.cookie
+        ?.split(';')
+        .find((c) => c.trim().startsWith('auth-token='))
+        ?.split('auth-token=')[1]
 
-    if (!authHeader || !authHeader.startsWith('Bearer')) {
+    if (!token) {
         return null
     }
 
-    const token = authHeader.split(' ')[1]
     const user = verifyJwt(token)
 
-    if (!user) {
+    if (!user || !user.id) {
         return null
     }
 
