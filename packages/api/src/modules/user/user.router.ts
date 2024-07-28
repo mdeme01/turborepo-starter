@@ -31,6 +31,9 @@ export const userRouter = router({
     getById: authenticationProcedure
         .input(getUserByIdSchema)
         .query(({ input }) => getUserByIdHandler(input)),
+    getMe: authenticationProcedure.query(({ ctx }) =>
+        getUserByIdHandler({ id: ctx.user?.id ?? '' }),
+    ),
     update: authenticationProcedure
         .input(updateUserSchema)
         .mutation(({ input }) => updateUserHandler(input)),
