@@ -94,7 +94,8 @@ export const getAllUsersHandler = async ({ name }: GetAllUsersInput) => {
 }
 
 export const getUserByIdHandler = async ({ id }: GetUserByIdInput) => {
-    return await db.select().from(users).where(eq(users.id, id))
+    const res = await db.select().from(users).where(eq(users.id, id))
+    return res[0]
 }
 
 export const updateUserHandler = async ({ id, password, ...input }: UpdateUserInput) => {
