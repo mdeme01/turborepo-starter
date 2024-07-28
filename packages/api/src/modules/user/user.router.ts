@@ -1,4 +1,4 @@
-import { publicProcedure, router } from '../../core/baseRouter'
+import { authenticationProcedure, publicProcedure, router } from '../../core/baseRouter'
 import {
     createUserSchema,
     deleteUserSchema,
@@ -22,19 +22,19 @@ export const userRouter = router({
         .input(createUserSchema)
         .mutation(({ input }) => registerUserHandler(input)),
     login: publicProcedure.input(loginUserSchema).mutation(({ input }) => loginUserHandler(input)),
-    create: publicProcedure
+    create: authenticationProcedure
         .input(createUserSchema)
         .mutation(({ input }) => createUserHandler(input)),
-    getAll: publicProcedure
+    getAll: authenticationProcedure
         .input(getAllUsersSchema)
         .query(({ input }) => getAllUsersHandler(input)),
-    getById: publicProcedure
+    getById: authenticationProcedure
         .input(getUserByIdSchema)
         .query(({ input }) => getUserByIdHandler(input)),
-    update: publicProcedure
+    update: authenticationProcedure
         .input(updateUserSchema)
         .mutation(({ input }) => updateUserHandler(input)),
-    delete: publicProcedure
+    delete: authenticationProcedure
         .input(deleteUserSchema)
         .mutation(({ input }) => deleteUserHandler(input)),
 })
