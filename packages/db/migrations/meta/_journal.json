@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1719133065306,
-      "tag": "0000_light_sabra",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1722086676536,
-      "tag": "0001_brave_landau",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1722088085949,
-      "tag": "0002_abandoned_hiroim",
+      "when": 1723237119708,
+      "tag": "0000_premium_absorbing_man",
       "breakpoints": true
     }
   ]
