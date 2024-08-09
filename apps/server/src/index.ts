@@ -7,7 +7,7 @@ const host = envConfig.server.host
 const port = envConfig.server.port
 
 const server = Fastify({
-    logger: false,
+    logger: true,
 })
 
 server.register(app)
