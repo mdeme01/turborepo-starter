@@ -6,7 +6,7 @@
         "dev": "tsx watch --tsconfig ./tsconfig.json src/index.ts",
         "lint": "eslint . --max-warnings 0",
         "type-check": "tsc --noEmit -p ./tsconfig.json",
-        "build": "esbuild --bundle --platform=node --outdir=dist src/index.ts"
+        "build": "tsx --tsconfig ./tsconfig.json esbuild.ts"
     },
     "dependencies": {
         "@fastify/autoload": "^5.10.0",
@@ -16,7 +16,8 @@
         "@repo/lib": "workspace:*",
         "@trpc/server": "11.0.0-rc.433",
         "fastify": "^4.28.1",
-        "fastify-plugin": "^4.5.1"
+        "fastify-plugin": "^4.5.1",
+        "tiny-glob": "^0.2.9"
     },
     "devDependencies": {
         "@repo/env": "workspace:*",

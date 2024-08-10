@@ -1,6 +1,6 @@
 import { db, users } from '@repo/db'
+import { hashPassword, verifyPassword } from '@repo/lib'
 import { TRPCError } from '@trpc/server'
-import { hash, verify } from 'argon2'
 import { eq, ilike } from 'drizzle-orm'
 
 import { userErrors } from './user.errors'
@@ -28,7 +28,7 @@ export const registerUserHandler = async ({ password, ...input }: CreateUserInpu
         .insert(users)
         .values({
             ...input,
-            password: await hash(password),
+            password: await hashPassword(password),
         })
         .returning({ id: users.id })
 
@@ -50,7 +50,7 @@ export const loginUserHandler = async (input: LoginUserInput) => {
     const res = await db.select().from(users).where(eq(users.email, input.email))
     const user = res[0]
 
-    const isPasswordValid = await verify(user.password, input.password)
+    const isPasswordValid = await verifyPassword(user.password, input.password)
 
     if (!isPasswordValid) {
         throw new TRPCError({
@@ -78,7 +78,7 @@ export const createUserHandler = async ({ password, ...input }: CreateUserInput)
         .insert(users)
         .values({
             ...input,
-            password: await hash(password),
+            password: await hashPassword(password),
         })
         .returning()
 
@@ -100,7 +100,7 @@ export const getUserByIdHandler = async ({ id }: GetUserByIdInput) => {
 export const updateUserHandler = async ({ id, password, ...input }: UpdateUserInput) => {
     const res = await db
         .update(users)
-        .set({ ...input, password: password ? await hash(password) : undefined })
+        .set({ ...input, password: password ? await hashPassword(password) : undefined })
         .where(eq(users.id, id))
         .returning()
 
