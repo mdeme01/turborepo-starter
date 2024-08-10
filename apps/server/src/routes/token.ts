@@ -1,5 +1,5 @@
 import { envConfig } from '@repo/env'
-import { signJwt, verifyJwt } from '@repo/utils'
+import { signJwt, verifyJwt } from '@repo/lib'
 import { FastifyInstance } from 'fastify'
 
 const authTokenCookieName = 'auth-token'

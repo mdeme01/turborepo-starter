@@ -11,7 +11,7 @@ This Turborepo includes the following packages/apps:
 - `@repo/ui`: React component library, using [shadcn/ui](https://ui.shadcn.com/)
 - `@repo/api`: tRPC API using Drizzle
 - `@repo/db`: Drizzle ORM interacting with a Postgres db
-- `@repo/utils`: A collection of utils used throughout the repo
+- `@repo/lib`: A collection of utils used throughout the repo
 - `@repo/env`: env variables config
 - `@repo/eslint`: `eslint` configurations
 - `@repo/typescript`: `typescript` configurations

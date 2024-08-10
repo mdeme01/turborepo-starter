@@ -1,4 +1,4 @@
-import { verifyJwt } from '@repo/utils'
+import { verifyJwt } from '@repo/lib'
 import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
 
 export const deserializeUser = async ({
