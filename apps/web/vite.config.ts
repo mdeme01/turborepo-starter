@@ -1,10 +1,11 @@
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 import react from '@vitejs/plugin-react'
 import dotenv from 'dotenv'
+import path from 'path'
 import { defineConfig, loadEnv } from 'vite'
 
 dotenv.config({
-    path: '../../.env',
+    path: path.resolve(__dirname, '../../.env'),
 })
 
 export default defineConfig(({ mode }) => {

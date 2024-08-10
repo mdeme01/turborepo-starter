@@ -1,7 +1,8 @@
 import dotenv from 'dotenv'
+import path from 'path'
 
 dotenv.config({
-    path: '../../../.env',
+    path: path.resolve(__dirname, '../../../.env'),
 })
 
 export const envConfig = {
