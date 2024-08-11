@@ -1,6 +1,6 @@
 import { createContext, Suspense, useEffect, useState } from 'react'
 
-import { checkAuthToken, deleteAuthToken, setAuthToken } from '../core/token'
+import { checkAuthToken, deleteAuthToken, setAuthToken } from '../core/auth'
 import { api, TRPCRouterOutput } from '../core/trpc'
 
 type AuthContextProps = {
