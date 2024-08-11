@@ -1,4 +1,4 @@
-import { hash } from 'argon2'
+import { hashPassword } from '@repo/lib'
 import { PostgresJsDatabase } from 'drizzle-orm/postgres-js'
 
 import { users } from '../src/schema'
@@ -10,7 +10,7 @@ export const seedUsers = async (db: PostgresJsDatabase<Record<string, never>>) =
         {
             name: 'John Doe',
             email: 'john.doe@gmail.com',
-            password: await hash('Hello1234!'),
+            password: await hashPassword('Hello1234!'),
         },
     ])
 }

@@ -25,7 +25,6 @@
     },
     "dependencies": {
         "@repo/lib": "workspace:*",
-        "argon2": "^0.40.3",
         "drizzle-orm": "^0.31.2",
         "postgres": "^3.4.4"
     }

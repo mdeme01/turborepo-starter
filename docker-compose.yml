@@ -11,3 +11,25 @@ services:
         volumes:
             - ./scripts/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
             - ./_db:/var/lib/postgresql/data
+    # server:
+    #     build:
+    #         context: .
+    #         dockerfile: ./apps/server/Dockerfile
+    #     container_name: turbo-server
+    #     env_file:
+    #         - .env
+    #     ports:
+    #         - "3000:3000"
+    #     depends_on:
+    #         - db
+    # web:
+    #     build:
+    #         context: .
+    #         dockerfile: ./apps/web/Dockerfile
+    #     container_name: turbo-web
+    #     env_file:
+    #         - .env
+    #     ports:
+    #         - "3001:3001"
+    #     depends_on:
+    #         - server
