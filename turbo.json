@@ -28,7 +28,13 @@
             "cache": false,
             "persistent": true
         },
-        "migrate": {},
-        "seed": {}
+        "migrate": {
+            "cache": false,
+            "persistent": true
+        },
+        "seed": {
+            "cache": false,
+            "persistent": true
+        }
     }
 }
