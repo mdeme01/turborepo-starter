@@ -9,13 +9,15 @@ import {
     FormLabel,
     FormMessage,
     Input,
+    Spinner,
 } from '@repo/web-ui'
-import { createFileRoute, RouteComponent } from '@tanstack/react-router'
+import { createFileRoute, RouteComponent, useNavigate } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
 
 import { useAuth } from '../../hooks/useAuth'
 
 const LoginRoute: RouteComponent = () => {
+    const navigate = useNavigate()
     const { login } = useAuth()
 
     const form = useForm<LoginUserInput>({
@@ -30,6 +32,7 @@ const LoginRoute: RouteComponent = () => {
 
     const onSubmit = async (data: LoginUserInput) => {
         await login(data)
+        navigate({ to: '/' })
     }
 
     return (
@@ -71,11 +74,18 @@ const LoginRoute: RouteComponent = () => {
                                 )}
                             />
                         </div>
-                        <Button type="submit">Continue</Button>
+                        <Button
+                            type="submit"
+                            className="flex items-center gap-2"
+                            disabled={form.formState.isSubmitting}
+                        >
+                            <Spinner size="small" show={form.formState.isSubmitting} />
+                            <div>Login</div>
+                        </Button>
                     </div>
                 </form>
             </Form>
-            <div className="flex flex-[0.5] items-center justify-center bg-gradient-to-b from-primary/50 to-transparent" />
+            <div className="flex flex-[0.5] items-center justify-center bg-gradient-to-r from-primary/50 to-transparent shadow-md shadow-primary" />
         </div>
     )
 }

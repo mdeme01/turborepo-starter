@@ -1,6 +1,11 @@
 import type { AppRouter } from '@repo/api'
 import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
-import { createTRPCReact, httpBatchLink, TRPCClientError } from '@trpc/react-query'
+import {
+    createTRPCQueryUtils,
+    createTRPCReact,
+    httpBatchLink,
+    TRPCClientError,
+} from '@trpc/react-query'
 import { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
 import superjson from 'superjson'
 
@@ -45,3 +50,5 @@ export const queryClient = new QueryClient({
         onError: errorHandler,
     }),
 })
+
+export const apiUtils = createTRPCQueryUtils({ queryClient, client: trpcClient })

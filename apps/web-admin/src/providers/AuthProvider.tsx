@@ -1,4 +1,5 @@
 import { LoginUserInput } from '@repo/api/schema'
+import { Spinner } from '@repo/web-ui'
 import { createContext, Suspense, useEffect, useState } from 'react'
 
 import { checkAuthToken, deleteAuthToken, setAuthToken } from '../core/auth'
@@ -46,7 +47,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }, [])
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return (
+            <div className="flex h-screen items-center justify-center">
+                <Spinner size="large" />
+            </div>
+        )
     }
 
     return (

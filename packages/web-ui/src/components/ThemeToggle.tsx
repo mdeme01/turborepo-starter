@@ -1,4 +1,4 @@
-import { Moon, Sun } from 'lucide-react'
+import { Check, Moon, Sun } from 'lucide-react'
 
 import { Button } from './Button'
 import {
@@ -10,7 +10,7 @@ import {
 import { useTheme } from './ThemeProvider'
 
 export const ThemeToggle = () => {
-    const { setTheme } = useTheme()
+    const { theme, setTheme } = useTheme()
 
     return (
         <DropdownMenu>
@@ -22,9 +22,27 @@ export const ThemeToggle = () => {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+                <DropdownMenuItem
+                    className="flex items-center justify-between"
+                    onClick={() => setTheme('light')}
+                >
+                    <div>Light</div>
+                    {theme === 'light' && <Check size={20} className="text-primary" />}
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                    className="flex items-center justify-between"
+                    onClick={() => setTheme('dark')}
+                >
+                    <div>Dark</div>
+                    {theme === 'dark' && <Check size={20} className="text-primary" />}
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                    className="flex items-center justify-between"
+                    onClick={() => setTheme('system')}
+                >
+                    <div>System</div>
+                    {theme === 'system' && <Check size={20} className="text-primary" />}
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
