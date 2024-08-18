@@ -1,5 +1,5 @@
 {
-    "name": "@repo/web",
+    "name": "@repo/web-react",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "@repo/api": "workspace:*",
-        "@repo/ui": "workspace:*",
+        "@repo/web-ui": "workspace:*",
         "@tanstack/react-query": "^5.49.0",
         "@tanstack/react-router": "1.43.2",
         "@tanstack/router-cli": "^1.43.1",

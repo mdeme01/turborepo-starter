@@ -1,4 +1,4 @@
-import { Button, ThemeToggle } from '@repo/ui'
+import { Button, ThemeToggle } from '@repo/web-ui'
 import { createFileRoute } from '@tanstack/react-router'
 
 import { useAuth } from '../hooks/useAuth'

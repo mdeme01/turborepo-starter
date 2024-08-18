@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@repo/ui'
+import { ThemeProvider } from '@repo/web-ui'
 
 import { ApiProvider } from '../providers/ApiProvider'
 import { AuthProvider } from '../providers/AuthProvider'

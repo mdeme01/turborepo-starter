@@ -6,12 +6,12 @@ This Turborepo includes the following `apps`, `packages` and `tools`:
 
 ### Apps
 
-- `@repo/web`: React app
+- `@repo/web-react`: React app
 - `@repo/server`: Fastify server using the tRPC API
 
 ### Packages
 
-- `@repo/ui`: React component library, featuring [shadcn/ui](https://ui.shadcn.com/)
+- `@repo/web-ui`: React component library, featuring [shadcn/ui](https://ui.shadcn.com/)
 - `@repo/api`: tRPC API
 - `@repo/db`: Drizzle ORM interacting with a Postgres db
 - `@repo/lib`: External Third party libraries
