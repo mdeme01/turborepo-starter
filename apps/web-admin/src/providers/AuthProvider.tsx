@@ -1,3 +1,4 @@
+import { LoginUserInput } from '@repo/api/schema'
 import { createContext, Suspense, useEffect, useState } from 'react'
 
 import { checkAuthToken, deleteAuthToken, setAuthToken } from '../core/auth'
@@ -5,7 +6,7 @@ import { api, TRPCRouterOutput } from '../core/trpc'
 
 type AuthContextProps = {
     user?: TRPCRouterOutput['user']['getMe']
-    login: ({ email, password }: { email: string; password: string }) => Promise<void>
+    login: ({ email, password }: LoginUserInput) => Promise<void>
     logout: () => Promise<void>
 }
 
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     const { mutateAsync: loginUser } = api.user.login.useMutation()
 
-    const login = async ({ email, password }: { email: string; password: string }) => {
+    const login = async ({ email, password }: LoginUserInput) => {
         const { userId } = await loginUser({ email, password })
         await setAuthToken({ userId })
         setAuthed(true)

@@ -1,17 +1,15 @@
 import { Button, ThemeToggle } from '@repo/web-ui'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 
 import { useAuth } from '../hooks/useAuth'
 
 const Home = () => {
-    const { user, login, logout } = useAuth()
-
-    const handleLogin = async () => {
-        await login({ email: 'john.doe@gmail.com', password: 'Hello1234!' })
-    }
+    const navigate = useNavigate()
+    const { user, logout } = useAuth()
 
     const handleLogout = async () => {
         await logout()
+        navigate({ to: '/auth/login' })
     }
 
     return (
@@ -20,7 +18,6 @@ const Home = () => {
                 Welcome to Turborepo starter {user?.name ?? 'Anonymus'}!
             </h1>
             <ThemeToggle />
-            {!user && <Button onClick={handleLogin}>Login</Button>}
             {user && <Button onClick={handleLogout}>Logout</Button>}
         </div>
     )

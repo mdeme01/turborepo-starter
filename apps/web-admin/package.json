@@ -11,6 +11,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@hookform/resolvers": "^3.9.0",
         "@repo/api": "workspace:*",
         "@repo/web-ui": "workspace:*",
         "@tanstack/react-query": "^5.49.0",
@@ -24,12 +25,12 @@
         "lucide-react": "^0.399.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
+        "react-hook-form": "^7.52.2",
         "superjson": "^2.2.1",
         "tailwind-merge": "^2.3.0",
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
-        "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/tailwind": "workspace:*",
         "@repo/typescript": "workspace:*",

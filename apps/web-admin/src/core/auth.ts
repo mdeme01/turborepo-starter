@@ -12,7 +12,7 @@ export const checkAuthToken = async () => {
         credentials: 'include',
     })
     const data = await res.json()
-    return data.authed
+    return data.authed as boolean
 }
 
 export const deleteAuthToken = async () => {

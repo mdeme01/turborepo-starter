@@ -43,7 +43,7 @@ export const loginUserHandler = async (input: LoginUserInput) => {
     if (!userExists) {
         throw new TRPCError({
             code: 'BAD_REQUEST',
-            message: userErrors.EMAIL_DOES_NOT_EXIST,
+            message: userErrors.INVALID_EMAIL_OR_PASSWORD,
         })
     }
 
@@ -55,7 +55,7 @@ export const loginUserHandler = async (input: LoginUserInput) => {
     if (!isPasswordValid) {
         throw new TRPCError({
             code: 'BAD_REQUEST',
-            message: userErrors.INVALID_PASSWORD,
+            message: userErrors.INVALID_EMAIL_OR_PASSWORD,
         })
     }
 

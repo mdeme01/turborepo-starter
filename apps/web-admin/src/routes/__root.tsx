@@ -1,6 +1,8 @@
-import { createRootRoute, Outlet } from '@tanstack/react-router'
+import { createRootRoute, Outlet, redirect, RouteComponent } from '@tanstack/react-router'
 
-const Root = () => {
+import { checkAuthToken } from '../core/auth'
+
+const RootRoute: RouteComponent = () => {
     return (
         <div className="h-screen">
             <Outlet />
@@ -9,5 +11,16 @@ const Root = () => {
 }
 
 export const Route = createRootRoute({
-    component: Root,
+    component: RootRoute,
+    beforeLoad: async ({ location }) => {
+        const isAuthed = await checkAuthToken()
+        const authRoute = location.pathname.includes('/auth')
+
+        if (isAuthed && authRoute) {
+            return redirect({ to: '/' })
+        }
+        if (!isAuthed && !authRoute) {
+            return redirect({ to: '/auth/login' })
+        }
+    },
 })
