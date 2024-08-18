@@ -16,7 +16,7 @@ RUN pnpm i --frozen-lockfile
 
 WORKDIR /app
 
-RUN pnpm build --filter=@repo/web-react
+RUN pnpm build --filter=@repo/web-admin
 
 EXPOSE 3001
 

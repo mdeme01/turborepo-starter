@@ -6,7 +6,7 @@ This Turborepo includes the following `apps`, `packages` and `tools`:
 
 ### Apps
 
-- `@repo/web-react`: React app
+- `@repo/web-admin`: React app
 - `@repo/server`: Fastify server using the tRPC API
 
 ### Packages
