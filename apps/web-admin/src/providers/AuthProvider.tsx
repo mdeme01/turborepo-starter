@@ -55,7 +55,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+            fallback={
+                <div className="flex h-screen items-center justify-center">
+                    <Spinner size="large" />
+                </div>
+            }
+        >
             <AuthContext.Provider value={{ user: authed ? user : undefined, login, logout }}>
                 {children}
             </AuthContext.Provider>
