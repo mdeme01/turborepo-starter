@@ -8,8 +8,8 @@ export const seedUsers = async (db: PostgresJsDatabase<Record<string, never>>) =
 
     await db.insert(users).values([
         {
-            name: 'John Doe',
-            email: 'john.doe@gmail.com',
+            name: 'Admin User',
+            email: 'admin@admin.com',
             password: await hashPassword('Hello1234!'),
         },
     ])

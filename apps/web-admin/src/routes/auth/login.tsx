@@ -39,11 +39,11 @@ const LoginRoute: RouteComponent = () => {
         <div className="flex h-full">
             <Form {...form}>
                 <form
-                    className="flex flex-[0.5] flex-col justify-center"
+                    className="flex flex-1 flex-col items-center justify-center bg-gradient-to-b from-transparent from-80% to-primary/50 sm:flex-[0.5] sm:to-transparent"
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <div className="flex flex-col justify-center space-y-4 px-48">
-                        <div className="text-center text-xl font-bold">Login</div>
+                    <div className="flex w-[300px] flex-col justify-center space-y-4">
+                        <div className="text-center text-xl font-bold">Welcome</div>
                         <div>
                             <FormField
                                 control={control}
@@ -67,7 +67,11 @@ const LoginRoute: RouteComponent = () => {
                                     <FormItem>
                                         <FormLabel>Password</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="example@eg.com" {...field} />
+                                            <Input
+                                                placeholder="************"
+                                                type="password"
+                                                {...field}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -85,7 +89,7 @@ const LoginRoute: RouteComponent = () => {
                     </div>
                 </form>
             </Form>
-            <div className="flex flex-[0.5] items-center justify-center bg-gradient-to-r from-primary/50 to-transparent shadow-md shadow-primary" />
+            <div className="hidden flex-none items-center justify-center bg-gradient-to-r from-transparent to-primary/50 sm:flex sm:flex-[0.5]" />
         </div>
     )
 }
