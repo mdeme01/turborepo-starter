@@ -12,6 +12,6 @@
     "devDependencies": {
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript": "workspace:*",
-        "dotenv": "^16.4.5"
+        "dotenv": "^16.4.7"
     }
 }

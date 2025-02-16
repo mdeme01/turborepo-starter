@@ -13,16 +13,16 @@
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript": "workspace:*",
         "esbuild": "^0.21.5",
-        "tsx": "^4.16.0"
+        "tsx": "^4.19.2"
     },
     "dependencies": {
         "@fastify/autoload": "^5.10.0",
-        "@fastify/cookie": "^9.3.1",
+        "@fastify/cookie": "^9.4.0",
         "@fastify/cors": "^9.0.1",
         "@repo/api": "workspace:*",
         "@repo/lib": "workspace:*",
         "@trpc/server": "11.0.0-rc.433",
-        "fastify": "^4.28.1",
+        "fastify": "^4.29.0",
         "fastify-plugin": "^4.5.1",
         "tiny-glob": "^0.2.9"
     }

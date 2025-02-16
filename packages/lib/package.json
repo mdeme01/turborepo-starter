@@ -13,11 +13,11 @@
         "@repo/env": "workspace:*",
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript": "workspace:*",
-        "@types/jsonwebtoken": "^9.0.6"
+        "@types/jsonwebtoken": "^9.0.8"
     },
     "dependencies": {
         "jsonwebtoken": "^9.0.2",
-        "nanoid": "^5.0.7",
-        "zod": "^3.23.8"
+        "nanoid": "^5.1.0",
+        "zod": "^3.24.2"
     }
 }
