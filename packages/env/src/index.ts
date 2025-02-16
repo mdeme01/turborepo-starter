@@ -8,7 +8,7 @@ dotenv.config({
 export const envConfig = {
     isDev: process.env.NODE_ENV === 'development',
     postgres: {
-        url: process.env.POSTGRES_URL ?? 'postgresql://user:password@localhost:5432/db',
+        url: process.env.POSTGRES_DB_URL ?? 'postgresql://user:password@localhost:5432/db',
     },
     server: {
         url: process.env.SERVER_URL ?? 'http://localhost:3000',
