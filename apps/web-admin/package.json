@@ -10,6 +10,21 @@
         "type-check": "tsc --noEmit -p ./tsconfig.json",
         "preview": "vite preview"
     },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/tailwind": "workspace:*",
+        "@repo/typescript": "workspace:*",
+        "@tanstack/router-devtools": "^1.43.2",
+        "@tanstack/router-vite-plugin": "^1.43.1",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "autoprefixer": "^10.4.19",
+        "dotenv": "^16.4.5",
+        "postcss": "^8.4.38",
+        "tailwindcss": "^3.4.4",
+        "vite": "^5.3.2"
+    },
     "dependencies": {
         "@hookform/resolvers": "^3.9.0",
         "@repo/api": "workspace:*",
@@ -30,22 +45,5 @@
         "tailwind-merge": "^2.3.0",
         "tailwindcss-animate": "^1.0.7",
         "ts-pattern": "^5.3.1"
-    },
-    "devDependencies": {
-        "@repo/eslint-config": "workspace:*",
-        "@repo/tailwind": "workspace:*",
-        "@repo/typescript": "workspace:*",
-        "@tanstack/router-devtools": "^1.43.2",
-        "@tanstack/router-vite-plugin": "^1.43.1",
-        "@types/react": "^18.3.3",
-        "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.3.1",
-        "autoprefixer": "^10.4.19",
-        "dotenv": "^16.4.5",
-        "eslint": "^8.57.0",
-        "postcss": "^8.4.38",
-        "tailwindcss": "^3.4.4",
-        "typescript": "^5.5.2",
-        "vite": "^5.3.2"
     }
 }

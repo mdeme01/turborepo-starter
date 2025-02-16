@@ -10,6 +10,10 @@
         "lint": "eslint . --max-warnings 0",
         "type-check": "tsc --noEmit -p ./tsconfig.json"
     },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript": "workspace:*"
+    },
     "dependencies": {
         "@repo/db": "workspace:*",
         "@repo/env": "workspace:*",
@@ -18,13 +22,5 @@
         "drizzle-orm": "^0.31.2",
         "superjson": "^2.2.1",
         "zod": "^3.23.8"
-    },
-    "devDependencies": {
-        "@repo/eslint-config": "workspace:*",
-        "@repo/typescript": "workspace:*",
-        "@types/eslint": "^8.56.10",
-        "@types/node": "^20.14.9",
-        "eslint": "^8.57.0",
-        "typescript": "^5.5.2"
     }
 }
