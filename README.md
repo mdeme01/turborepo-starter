@@ -6,7 +6,7 @@ This Turborepo includes the following `apps`, `packages` and `tools`:
 
 ### Apps
 
-- `@repo/frontend-react`: React app
+- `@repo/frontend-admin`: Admin app template using React
 - `@repo/backend`: Hono server using the tRPC API
 
 ### Packages
