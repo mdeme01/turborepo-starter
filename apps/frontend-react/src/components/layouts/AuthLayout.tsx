@@ -13,19 +13,17 @@ import { useRouter } from '@tanstack/react-router'
 import { LogOut } from 'lucide-react'
 
 import { useAuth } from '../../hooks/useAuth'
+import { useUser } from '../../hooks/useUser'
 
 export const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const router = useRouter()
 
-    const { user, logout } = useAuth()
+    const { logout } = useAuth()
+    const user = useUser()
 
     const handleLogout = async () => {
         await logout()
         await router.invalidate()
-    }
-
-    if (!user) {
-        return null
     }
 
     return (
