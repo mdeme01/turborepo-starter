@@ -1,10 +1,10 @@
-import { authenticationProcedure, publicProcedure, router } from '../../core/baseRouter'
+import { authenticationProcedure, router } from '../../core/baseRouter'
+import { authRouter } from './auth/auth.router'
 import {
     createUserSchema,
     deleteUserSchema,
     getAllUsersSchema,
     getUserByIdSchema,
-    loginUserSchema,
     updateUserSchema,
 } from './user.schema'
 import {
@@ -12,16 +12,11 @@ import {
     deleteUserHandler,
     getAllUsersHandler,
     getUserByIdHandler,
-    loginUserHandler,
-    registerUserHandler,
     updateUserHandler,
 } from './user.service'
 
 export const userRouter = router({
-    register: publicProcedure
-        .input(createUserSchema)
-        .mutation(({ input }) => registerUserHandler(input)),
-    login: publicProcedure.input(loginUserSchema).mutation(({ input }) => loginUserHandler(input)),
+    auth: authRouter,
     create: authenticationProcedure
         .input(createUserSchema)
         .mutation(({ input }) => createUserHandler(input)),
@@ -31,9 +26,6 @@ export const userRouter = router({
     getById: authenticationProcedure
         .input(getUserByIdSchema)
         .query(({ input }) => getUserByIdHandler(input)),
-    getMe: authenticationProcedure.query(({ ctx }) =>
-        getUserByIdHandler({ id: ctx.user?.id ?? '' }),
-    ),
     update: authenticationProcedure
         .input(updateUserSchema)
         .mutation(({ input }) => updateUserHandler(input)),

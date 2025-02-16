@@ -1,13 +1,17 @@
-import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
+import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch'
+import { Context as HonoContext } from 'hono'
 
-import { deserializeUser } from './deserializeUser'
+import { auth, UserContext } from '../core/auth'
 
-export const createContext = async (param: CreateFastifyContextOptions) => {
-    const user = await deserializeUser(param)
-
-    return {
-        user,
-    }
+export type Context = {
+    user: UserContext | null
+    c: HonoContext
 }
 
-export type Context = Awaited<ReturnType<typeof createContext>>
+export const createContext = async (
+    _opts: FetchCreateContextFnOptions,
+    c: HonoContext,
+): Promise<Context> => {
+    const user = await auth.deserializeUser({ c })
+    return { user, c }
+}

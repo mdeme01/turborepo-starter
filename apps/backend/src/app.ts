@@ -1,19 +1,30 @@
-import autoload from '@fastify/autoload'
-import { FastifyInstance, FastifyPluginOptions } from 'fastify'
-import path from 'path'
+import { trpcServer } from '@hono/trpc-server'
+import { appRouter, createContext } from '@repo/api'
+import { envConfig } from '@repo/env'
+import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import { logger } from 'hono/logger'
 
-type AppOptions = FastifyPluginOptions & {
-    opts: unknown
-}
+const app = new Hono()
 
-export const app = async (fastify: FastifyInstance, options: AppOptions) => {
-    await fastify.register(autoload, {
-        dir: path.join(__dirname, 'plugins'),
-        options,
-    })
+app.use(logger())
 
-    await fastify.register(autoload, {
-        dir: path.join(__dirname, 'routes'),
-        options,
-    })
-}
+app.use(
+    '*',
+    cors({
+        origin: envConfig.web.url,
+        credentials: true,
+    }),
+)
+
+app.use(
+    '/trpc/*',
+    trpcServer({
+        router: appRouter,
+        createContext,
+    }),
+)
+
+app.get('/', (c) => c.text('Hono server is running'))
+
+export { app }

@@ -7,7 +7,7 @@ This Turborepo includes the following `apps`, `packages` and `tools`:
 ### Apps
 
 - `@repo/frontend-react`: React app
-- `@repo/backend`: Fastify server using the tRPC API
+- `@repo/backend`: Hono server using the tRPC API
 
 ### Packages
 

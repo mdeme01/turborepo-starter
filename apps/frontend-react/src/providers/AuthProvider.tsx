@@ -1,12 +1,11 @@
 import { LoginUserInput } from '@repo/api/schema'
 import { Spinner } from '@repo/web-ui'
-import { createContext, Suspense, useEffect, useState } from 'react'
+import { createContext, Suspense } from 'react'
 
-import { checkAuthToken, deleteAuthToken, setAuthToken } from '../core/auth'
 import { api, TRPCRouterOutput } from '../core/trpc'
 
 type AuthContextProps = {
-    user?: TRPCRouterOutput['user']['getMe']
+    user?: TRPCRouterOutput['user']['auth']['getMe']
     login: ({ email, password }: LoginUserInput) => Promise<void>
     logout: () => Promise<void>
 }
@@ -18,33 +17,18 @@ export const AuthContext = createContext<AuthContextProps>({
 })
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const [authed, setAuthed] = useState<boolean>(false)
+    const { data: user, isLoading } = api.user.auth.getMe.useQuery()
 
-    const { data: user, isLoading } = api.user.getMe.useQuery(undefined, {
-        staleTime: Infinity,
-        enabled: authed,
-    })
-
-    const { mutateAsync: loginUser } = api.user.login.useMutation()
+    const { mutateAsync: loginUser } = api.user.auth.login.useMutation()
+    const { mutateAsync: logoutUser } = api.user.auth.logout.useMutation()
 
     const login = async ({ email, password }: LoginUserInput) => {
-        const { userId } = await loginUser({ email, password })
-        await setAuthToken({ userId })
-        setAuthed(true)
+        await loginUser({ email, password })
     }
 
     const logout = async () => {
-        await deleteAuthToken()
-        setAuthed(false)
+        await logoutUser()
     }
-
-    useEffect(() => {
-        const checkAuthed = async () => {
-            const tokenExists = await checkAuthToken()
-            setAuthed(tokenExists)
-        }
-        checkAuthed()
-    }, [])
 
     if (isLoading) {
         return (
@@ -62,9 +46,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 </div>
             }
         >
-            <AuthContext.Provider value={{ user: authed ? user : undefined, login, logout }}>
-                {children}
-            </AuthContext.Provider>
+            <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>
         </Suspense>
     )
 }

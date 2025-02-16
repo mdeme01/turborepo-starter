@@ -15,11 +15,13 @@
         "@repo/typescript": "workspace:*"
     },
     "dependencies": {
+        "@hono/trpc-server": "^0.3.4",
         "@repo/db": "workspace:*",
         "@repo/env": "workspace:*",
         "@repo/lib": "workspace:*",
         "@trpc/server": "11.0.0-rc.433",
         "drizzle-orm": "^0.31.4",
+        "hono": "^4.7.1",
         "superjson": "^2.2.2",
         "zod": "^3.24.2"
     }
