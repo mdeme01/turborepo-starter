@@ -11,13 +11,14 @@ import {
     Input,
     Spinner,
 } from '@repo/web-ui'
-import { createFileRoute, RouteComponent, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, RouteComponent, useRouter } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
 
 import { useAuth } from '../../hooks/useAuth'
 
 const LoginRoute: RouteComponent = () => {
-    const navigate = useNavigate()
+    const router = useRouter()
+
     const { login } = useAuth()
 
     const form = useForm<LoginUserInput>({
@@ -32,7 +33,7 @@ const LoginRoute: RouteComponent = () => {
 
     const onSubmit = async (data: LoginUserInput) => {
         await login(data)
-        navigate({ to: '/' })
+        await router.invalidate()
     }
 
     return (

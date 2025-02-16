@@ -1,30 +1,30 @@
-import { createRootRoute, Outlet, RouteComponent } from '@tanstack/react-router'
-import { match, P } from 'ts-pattern'
+import {
+    createRootRouteWithContext,
+    Outlet,
+    redirect,
+    RouteComponent,
+} from '@tanstack/react-router'
 
-import { AuthLayout } from '../components/AuthLayout'
-import { MainLayout } from '../components/MainLayout'
-import { useAuth } from '../hooks/useAuth'
+import { RouterContext } from '../providers/RouterProvider'
 
 const RootRoute: RouteComponent = () => {
-    const { user } = useAuth()
-
     return (
         <div className="h-screen">
-            {match(user)
-                .with(P.nullish, () => (
-                    <AuthLayout>
-                        <Outlet />
-                    </AuthLayout>
-                ))
-                .otherwise(() => (
-                    <MainLayout>
-                        <Outlet />
-                    </MainLayout>
-                ))}
+            <Outlet />
         </div>
     )
 }
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<RouterContext>()({
     component: RootRoute,
+    loader: async ({ context, location }) => {
+        const isPublicRoute = location.pathname.startsWith('/auth')
+
+        if (!isPublicRoute && !context.user) {
+            throw redirect({ to: '/auth/login' })
+        }
+        if (isPublicRoute && context.user) {
+            throw redirect({ to: '/' })
+        }
+    },
 })

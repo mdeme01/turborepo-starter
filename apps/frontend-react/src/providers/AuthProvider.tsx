@@ -4,33 +4,37 @@ import { createContext, Suspense } from 'react'
 
 import { api, TRPCRouterOutput } from '../core/trpc'
 
+export type AuthContextUser = TRPCRouterOutput['user']['auth']['getMe']
+
 type AuthContextProps = {
-    user?: TRPCRouterOutput['user']['auth']['getMe']
+    user: AuthContextUser | null
     login: ({ email, password }: LoginUserInput) => Promise<void>
     logout: () => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextProps>({
-    user: undefined,
+    user: null,
     login: async () => {},
     logout: async () => {},
 })
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const { data: user, isLoading } = api.user.auth.getMe.useQuery()
+    const { data: user, refetch, isLoading, isFetching, isPending } = api.user.auth.getMe.useQuery()
 
     const { mutateAsync: loginUser } = api.user.auth.login.useMutation()
     const { mutateAsync: logoutUser } = api.user.auth.logout.useMutation()
 
     const login = async ({ email, password }: LoginUserInput) => {
         await loginUser({ email, password })
+        await refetch()
     }
 
     const logout = async () => {
         await logoutUser()
+        await refetch()
     }
 
-    if (isLoading) {
+    if (isLoading || isFetching || isPending) {
         return (
             <div className="flex h-screen items-center justify-center">
                 <Spinner size="large" />
@@ -46,7 +50,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 </div>
             }
         >
-            <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>
+            <AuthContext.Provider value={{ user: user ?? null, login, logout }}>
+                {children}
+            </AuthContext.Provider>
         </Suspense>
     )
 }

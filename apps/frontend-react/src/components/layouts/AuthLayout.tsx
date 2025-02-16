@@ -9,18 +9,23 @@ import {
     DropdownMenuTrigger,
     ThemeToggle,
 } from '@repo/web-ui'
-import { useNavigate } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-router'
 import { LogOut } from 'lucide-react'
 
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../../hooks/useAuth'
 
-export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const navigate = useNavigate()
+export const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const router = useRouter()
+
     const { user, logout } = useAuth()
 
     const handleLogout = async () => {
         await logout()
-        navigate({ to: '/auth/login' })
+        await router.invalidate()
+    }
+
+    if (!user) {
+        return null
     }
 
     return (
@@ -32,11 +37,11 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }
                     <DropdownMenu>
                         <DropdownMenuTrigger>
                             <Avatar>
-                                <AvatarFallback>{user?.name[0]}</AvatarFallback>
+                                <AvatarFallback>{user.name[0]}</AvatarFallback>
                             </Avatar>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>{user?.name}</DropdownMenuLabel>
+                            <DropdownMenuLabel>{user.name}</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem
                                 className="flex items-center gap-2"

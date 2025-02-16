@@ -11,7 +11,7 @@ import { checkUserExists } from '../user.utils'
 
 export const getMeHandler = async ({ userId }: { userId: string }) => {
     const res = await db.select().from(users).where(eq(users.id, userId))
-    return res[0]
+    return res[0] ?? null
 }
 
 export const registeHandler = async ({

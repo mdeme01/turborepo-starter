@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../../hooks/useAuth'
 
 const Home = () => {
     const { user } = useAuth()
@@ -12,6 +12,6 @@ const Home = () => {
     )
 }
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_auth/')({
     component: Home,
 })
